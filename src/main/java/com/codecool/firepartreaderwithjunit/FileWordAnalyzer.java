@@ -49,4 +49,8 @@ public class FileWordAnalyzer {
         return (reverse.toString()).equals(original);
     }
 
+    public FilePartReader getFilePartReader() {
+        return filePartReader;
+    }
+
 }

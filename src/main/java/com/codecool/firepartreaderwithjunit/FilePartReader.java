@@ -39,4 +39,16 @@ public class FilePartReader {
                 .collect(Collectors.joining(" "));
     }
 
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public Integer getFromLine() {
+        return fromLine;
+    }
+
+    public Integer getToLine() {
+        return toLine;
+    }
+
 }
