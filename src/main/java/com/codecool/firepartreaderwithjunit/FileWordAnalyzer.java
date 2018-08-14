@@ -40,10 +40,10 @@ public class FileWordAnalyzer {
     private boolean isPalindrome(String text) {
         StringBuilder reverse = new StringBuilder();
         String original = text.replaceAll("\\s+", "").toLowerCase();
-        char[] plain = original.toCharArray();
+        char[] characters = original.toCharArray();
 
-        for (int i = plain.length - 1; i >= 0; i--) {
-            reverse.append(plain[i]);
+        for (int i = characters.length - 1; i >= 0; i--) {
+            reverse.append(characters[i]);
         }
 
         return (reverse.toString()).equals(original);
