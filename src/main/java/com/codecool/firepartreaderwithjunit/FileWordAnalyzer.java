@@ -7,32 +7,31 @@ import java.util.stream.Stream;
 
 public class FileWordAnalyzer {
 
-    private final FilePartReader filePartReader;
+    private final FilePartReader FILE_PART_READER;
+    private final String TEXT;
 
 
-    public FileWordAnalyzer(FilePartReader filePartReader) {
-        this.filePartReader = filePartReader;
+    public FileWordAnalyzer(FilePartReader filePartReader) throws IOException {
+        this.FILE_PART_READER = filePartReader;
+        this.TEXT = filePartReader.readLines();
     }
 
 
-    public ArrayList<String> wordsByABC() throws IOException {
-        String text = this.filePartReader.readLines();
-        return (ArrayList<String>) Stream.of(text.split("\\s+"))
+    public ArrayList<String> wordsByABC() {
+        return (ArrayList<String>) Stream.of(this.TEXT.split("\\s+"))
                                     .map(word -> word.replaceAll("[.,!?]", ""))
                                     .sorted()
                                     .collect(Collectors.toList());
     }
 
-    public ArrayList<String> wordsContainingSubString(String subString) throws IOException {
-        String text = this.filePartReader.readLines();
-        return (ArrayList<String>) Stream.of(text.split("\\s+"))
+    public ArrayList<String> wordsContainingSubString(String subString) {
+        return (ArrayList<String>) Stream.of(this.TEXT.split("\\s+"))
                                     .filter(word -> word.contains(subString))
                                     .collect(Collectors.toList());
     }
 
-    public ArrayList<String> wordsArePalindrome() throws IOException {
-        String text = this.filePartReader.readLines();
-        return (ArrayList<String>) Stream.of(text.split("\\s+"))
+    public ArrayList<String> wordsArePalindrome() {
+        return (ArrayList<String>) Stream.of(this.TEXT.split("\\s+"))
                                     .filter(this::isPalindrome)
                                     .collect(Collectors.toList());
     }
@@ -49,8 +48,8 @@ public class FileWordAnalyzer {
         return (reverse.toString()).equals(original);
     }
 
-    public FilePartReader getFilePartReader() {
-        return filePartReader;
+    public FilePartReader getFILE_PART_READER() {
+        return FILE_PART_READER;
     }
 
 }

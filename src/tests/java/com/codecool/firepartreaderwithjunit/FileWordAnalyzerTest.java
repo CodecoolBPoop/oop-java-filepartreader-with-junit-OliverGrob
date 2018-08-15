@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileWordAnalyzerTest {
 
     @Test
-    public void testIsFilePartReaderAtConstructorCallIsNotNull() {
+    public void testIsFilePartReaderAtConstructorCallIsNotNull() throws IOException {
         FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(new FilePartReader());
-        assertNotNull(fileWordAnalyzer.getFilePartReader());
+        assertNotNull(fileWordAnalyzer.getFILE_PART_READER());
     }
 
     @Test
