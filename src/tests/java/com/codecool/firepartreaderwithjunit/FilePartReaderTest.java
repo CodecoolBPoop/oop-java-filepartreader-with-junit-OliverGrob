@@ -3,7 +3,6 @@ package com.codecool.firepartreaderwithjunit;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
-import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -66,7 +65,7 @@ class FilePartReaderTest {
     }
 
     @Test
-    public void testRead() throws IOException {
+    public void testRead() {
         String text = "Where can I get some? " +
                 "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, " +
                 "by injected humour, or randomised words which don't look even slightly believable. " +
@@ -88,7 +87,7 @@ class FilePartReaderTest {
     }
 
     @Test
-    public void testReadLines() throws IOException {
+    public void testReadLines() {
         String text = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, " +
                 "by injected humour, or randomised words which don't look even slightly believable. " +
                 "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the";
@@ -98,7 +97,7 @@ class FilePartReaderTest {
     }
 
     @Test
-    public void testReadLinesIfFromLineIsAndToLineAreBoth1() throws IOException {
+    public void testReadLinesIfFromLineIsAndToLineAreBoth1() {
         String text = "Where can I get some?";
         FilePartReader filePartReader = new FilePartReader();
         filePartReader.setup("resources/sample_text.txt", 1, 1);

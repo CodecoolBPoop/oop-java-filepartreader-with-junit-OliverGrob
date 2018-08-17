@@ -27,16 +27,26 @@ public class FilePartReader {
         this.toLine = toLine;
     }
 
-    public String read() throws IOException {
-        return Files.lines(Paths.get(this.filePath))
-                            .collect(Collectors.joining(" "));
+    public String read() {
+        try {
+            return Files.lines(Paths.get(this.filePath))
+                    .collect(Collectors.joining(" "));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public String readLines() throws IOException {
-        return Files.lines(Paths.get(this.filePath))
-                .skip(this.fromLine - 1)
-                .limit(this.toLine - this.fromLine + 1)
-                .collect(Collectors.joining(" "));
+    public String readLines() {
+        try {
+            return Files.lines(Paths.get(this.filePath))
+                    .skip(this.fromLine - 1)
+                    .limit(this.toLine - this.fromLine + 1)
+                    .collect(Collectors.joining(" "));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public String getFilePath() {

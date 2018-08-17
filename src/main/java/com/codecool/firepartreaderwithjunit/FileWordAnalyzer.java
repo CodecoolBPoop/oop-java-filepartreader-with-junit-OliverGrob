@@ -1,6 +1,5 @@
 package com.codecool.firepartreaderwithjunit;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -11,7 +10,7 @@ public class FileWordAnalyzer {
     private final String TEXT;
 
 
-    public FileWordAnalyzer(FilePartReader filePartReader) throws IOException {
+    public FileWordAnalyzer(FilePartReader filePartReader) {
         this.FILE_PART_READER = filePartReader;
         this.TEXT = filePartReader.readLines();
     }
