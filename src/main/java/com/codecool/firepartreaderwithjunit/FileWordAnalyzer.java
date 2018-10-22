@@ -17,20 +17,20 @@ public class FileWordAnalyzer {
 
 
     public ArrayList<String> wordsByABC() {
-        return (ArrayList<String>) Stream.of(this.TEXT.split("\\s+"))
+        return (ArrayList<String>) Stream.of(this.getTEXT().split("\\s+"))
                                     .map(word -> word.replaceAll("[.,!?]", ""))
                                     .sorted()
                                     .collect(Collectors.toList());
     }
 
     public ArrayList<String> wordsContainingSubString(String subString) {
-        return (ArrayList<String>) Stream.of(this.TEXT.split("\\s+"))
+        return (ArrayList<String>) Stream.of(this.getTEXT().split("\\s+"))
                                     .filter(word -> word.contains(subString))
                                     .collect(Collectors.toList());
     }
 
     public ArrayList<String> wordsArePalindrome() {
-        return (ArrayList<String>) Stream.of(this.TEXT.split("\\s+"))
+        return (ArrayList<String>) Stream.of(this.getTEXT().split("\\s+"))
                                     .filter(this::isPalindrome)
                                     .collect(Collectors.toList());
     }
@@ -50,5 +50,7 @@ public class FileWordAnalyzer {
     public FilePartReader getFILE_PART_READER() {
         return FILE_PART_READER;
     }
+
+    public String getTEXT() { return TEXT; }
 
 }
