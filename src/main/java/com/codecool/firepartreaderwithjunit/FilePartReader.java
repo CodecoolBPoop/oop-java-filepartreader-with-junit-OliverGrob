@@ -27,14 +27,9 @@ public class FilePartReader {
         this.toLine = toLine;
     }
 
-    public String read() {
-        try {
-            return Files.lines(Paths.get(this.filePath))
-                    .collect(Collectors.joining(" "));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public String read() throws IOException {
+        return Files.lines(Paths.get(this.filePath))
+                .collect(Collectors.joining(" "));
     }
 
     public String readLines() {
